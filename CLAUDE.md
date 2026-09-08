@@ -14,9 +14,13 @@ refactor beyond what was asked. When a task could be interpreted broadly, ask.
 This is a correction from prior sessions where the assistant over-built. It is the
 single most important instruction in this file.
 
-**Do not reinvent tools that already exist.** Quality checking belongs to
-SQualCheck. Plotting helpers belong in `shared/`. If a capability seems missing,
-ask before writing a replacement.
+**NO INVENTING NEW WHEELS unless absolutely have to.** Quality checking belongs
+to SQualCheck. Transmission-line and lumped-element physics belongs to scikit-rf's
+`media` classes. Time-domain transforms belong to `Network.step_response` and
+friends. Plotting helpers belong in `shared/`, built on scikit-rf's plot methods.
+Before writing any helper, search scikit-rf for it and say what was found. If a
+capability is genuinely missing, ask before writing a replacement. Every physics
+expression written by hand needs a citation to a specific paper or book equation.
 
 ---
 
@@ -141,13 +145,19 @@ properties are facts and may be used. The documents are not ours to redistribute
 
 ## Current state
 
-`synthesis/generate_kit.py` works — builds 3 cm and 6 cm microstrip DUTs with
-Wheeler impedance, skin-effect and Huray roughness, Djordjevic-Sarkar dielectric
-loss, a lumped connector model, and Kaiser-windowed TDR. Passes passivity and
-reciprocity.
+`synthesis/generate_kit.py` builds the 3 cm and 6 cm microstrip DUTs on
+scikit-rf's `MLine` medium (Hammerstad-Jensen impedance and roughness,
+Kirschning-Jansen dispersion, Djordjevic-Svensson causal dielectric) with a
+lumped series-L / shunt-C connector from scikit-rf lumped elements. Plots,
+step-response TDR, passivity and reciprocity checks are scikit-rf `Network`
+methods. Its material constants are still the RO4350B / 22 mil guess;
+switching them to `coupon_specs.py` is a pending decision.
 
-Not yet done: `synthesis/utils.py` has not been extracted from `generate_kit.py`;
-`shared/` does not exist; no examples are built.
+`synthesis/utils.py` holds the frequency, microstrip and connector primitives
+as thin scikit-rf wrappers. `synthesis/coupon_specs.py` holds the kit's
+dimensions and material facts with per-value provenance; nothing uses it yet.
+
+Not yet done: `shared/` does not exist; no examples are built.
 
 ---
 

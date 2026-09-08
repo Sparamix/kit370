@@ -105,9 +105,10 @@ different responses:
 | Full-wave frequency range | 100 MHz – 50 GHz, 100 MHz steps |
 | Reference impedance | 50 Ω |
 
-Analytic models include Wheeler/Hammerstad-Jensen microstrip impedance,
-skin-effect conductor loss with Huray roughness correction, Djordjevic-Sarkar
-causal dielectric loss, and a lumped connector launch model.
+Analytic models are built on scikit-rf's `MLine` microstrip medium
+(Hammerstad-Jensen impedance and roughness correction, Kirschning-Jansen
+dispersion, Djordjevic-Svensson causal dielectric model) with a lumped
+series-L / shunt-C connector launch from scikit-rf lumped elements.
 
 ## Quality
 
