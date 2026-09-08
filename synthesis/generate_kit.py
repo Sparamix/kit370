@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-generate_kit.py - openSNPKit370 S-parameter Synthesis
+generate_kit.py - kit370 S-parameter Synthesis
 
 Generates virtual P370 kit S-parameter files using scikit-rf.
 
@@ -442,7 +442,7 @@ def create_comparison_plot(networks, colors, output_path=None):
         If provided, save figure to this path
     """
     fig, axes = plt.subplots(3, 2, figsize=(12, 10))
-    fig.suptitle('openSNPKit370 - Microstrip Comparison', fontsize=14, fontweight='bold')
+    fig.suptitle('kit370 - Microstrip Comparison', fontsize=14, fontweight='bold')
     
     ax_s11_mag = axes[0, 0]
     ax_s11_phase = axes[1, 0]
@@ -538,7 +538,7 @@ def generate_microstrip_duts():
     """Generate the microstrip DUT files."""
     
     print("="*60)
-    print("openSNPKit370 - Generating Microstrip DUTs")
+    print("kit370 - Generating Microstrip DUTs")
     print("="*60)
     
     # Create output directory

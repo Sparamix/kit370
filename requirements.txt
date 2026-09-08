@@ -1,0 +1,5 @@
+scikit-rf>=0.30
+numpy
+scipy
+matplotlib
+jupyter
