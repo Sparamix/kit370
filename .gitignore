@@ -209,6 +209,8 @@ __marimo__/
 # --- kit370: never commit third-party material ---
 # Reference collateral folder (user guide, datasheet, DXF) — reference-only, never redistribute
 reference_plug_and_play_kit_GITIGNORE/
+# Downloaded material datasheets (Rogers etc.) - reference-only, never redistribute
+reference_collaterals/
 # Vendor documentation and CAD
 *.pdf
 *.dxf
